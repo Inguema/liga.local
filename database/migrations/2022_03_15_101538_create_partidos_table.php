@@ -17,7 +17,8 @@ class CreatePartidosTable extends Migration
             $table->id();
             $table->unsignedBigInteger('equipo_local_id');
             $table->unsignedBigInteger('equipo_visitante_id');
-            $table->integer('marcador');
+            $table->integer('marcador_local')->default(0);
+            $table->integer('marcador_visitante')->default(0);
 
             $table->foreign('equipo_local_id')
                     ->references('id')

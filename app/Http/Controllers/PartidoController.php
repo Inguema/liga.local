@@ -63,7 +63,8 @@ class PartidoController extends Controller
      */
     public function edit(Partido $partido): View
     {
-        return view('partido.edit', compact('partido'));
+        $equipos = Equipo::all();
+        return view('partido.edit', compact('partido', 'equipos'));
     }
 
     /**

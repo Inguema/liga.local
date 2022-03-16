@@ -11,7 +11,7 @@ class Partido extends Model
 
     protected $table = "partidos";
 
-    protected $fillable = ['equipo_local_id', 'equipo_visitante_id', 'marcador'];
+    protected $fillable = ['equipo_local_id', 'equipo_visitante_id', 'marcador_local', 'marcador_visitante'];
 
     // Relación uno a muchos inversa
     public function equipoLocal()

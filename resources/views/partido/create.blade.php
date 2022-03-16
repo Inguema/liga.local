@@ -21,12 +21,20 @@
             </select>
         </div>
         <div class="row mb-3">
+            <label for="marcador_local" class="form-label">Marcador Local</label>
+            <input name="marcador_local" type="number" value="" class="form-control">
+        </div>
+        <div class="row mb-3">
             <select class="form-select" name="equipo_visitante_id" required>
                 <option value="">Seleccione Equipo Visitante</option>
                 @foreach($equipos as $equipo)
                     <option value="{{$equipo->id}}">{{$equipo->nombre}}</option>
                 @endforeach
             </select>
+        </div>
+        <div class="row mb-3">
+            <label for="marcador_visitante" class="form-label">Marcador Visitante</label>
+            <input name="marcador_visitante" type="number" value="" class="form-control">
         </div>
         <button type="submit" class="btn btn-info">Enviar</button>
     </form>

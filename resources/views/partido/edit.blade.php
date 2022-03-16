@@ -17,20 +17,37 @@
         @method('put')
 
         <div class="row mb-3">
-            <label for="equipo_local_id" class="form-label">Equipo Local</label>
-            <input type="text" class="form-control" placeholder="Introduzca Equipo Local" name="equipo_local_id" required>
+            <select class="form-select" name="equipo_local_id" required>
+                <option value="">Seleccione Equipo Local</option>
+                @foreach($equipos as $equipo)
+                    @if($equipo->id === $partido->equipo_local_id)
+                        <option value="{{$equipo->id}}" selected>{{$equipo->nombre}}</option>
+                    @else
+                        <option value="{{$equipo->id}}">{{$equipo->nombre}}</option>
+                    @endif
+                @endforeach
+            </select>
         </div>
-
         <div class="row mb-3">
-            <label for="equipo_visitante_id" class="form-label">Equipo Visitante</label>
-            <input type="text" class="form-control" placeholder="Introduzca Equipo Local" name="equipo_visitante_id" required>
+            <label for="marcador_local" class="form-label">Marcador Local</label>
+            <input name="marcador_local" type="number" value="{{$partido->marcador_local}}" class="form-control">
         </div>
-
         <div class="row mb-3">
-            <label for="marcador" class="form-label">Marcador</label>
-            <input type="text" class="form-control" placeholder="Resultado" name="marcador" required>
+            <select class="form-select" name="equipo_visitante_id" required>
+                <option value="">Seleccione Equipo Visitante</option>
+                @foreach($equipos as $equipo)
+                    @if($equipo->id === $partido->equipo_visitante_id)
+                        <option value="{{$equipo->id}}" selected>{{$equipo->nombre}}</option>
+                    @else
+                        <option value="{{$equipo->id}}">{{$equipo->nombre}}</option>
+                    @endif
+                @endforeach
+            </select>
         </div>
-
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <div class="row mb-3">
+            <label for="marcador_visitante" class="form-label">Marcador Visitante</label>
+            <input name="marcador_visitante" type="number" value="{{$partido->marcador_visitante}}" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-info">Enviar</button>
     </form>
 @endsection
