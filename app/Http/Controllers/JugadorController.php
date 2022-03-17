@@ -6,6 +6,7 @@ use App\Models\Equipo;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreJugador;
 
 use App\Models\Jugador;
 
@@ -36,13 +37,12 @@ class JugadorController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
+     * @param  StoreJugador  $request
      * @return RedirectResponse
      */
-    public function store(Request $request): RedirectResponse
+    public function store(StoreJugador $request): RedirectResponse
     {
         $jugador = Jugador::create($request->all());
-
         return redirect()->route('jugador.show', $jugador);
     }
 
@@ -71,11 +71,11 @@ class JugadorController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request  $request
+     * @param  StoreJugador  $request
      * @param  Jugador $jugador
      * @return RedirectResponse
      */
-    public function update(Request $request, Jugador $jugador): RedirectResponse
+    public function update(StoreJugador $request, Jugador $jugador): RedirectResponse
     {
         $jugador->update($request->all());
 

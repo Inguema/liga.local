@@ -19,19 +19,31 @@
 
         <div class="row mb-3">
             <label for="nombre" class="form-label">Nombre Jugador</label>
-            <input name="nombre" type="text" value="{{$jugador->nombre}}">
-        </div>
+            <input name="nombre" type="text" value="{{old('nombre',$jugador->nombre)}}">
+            @error('nombre')
+            <br>
+            <small>*{{$message}}</small>
+            <br>
+            @enderror
 
-        <div class="row mb-3">
             <label for="apellidos" class="form-label">Apellidos Jugador</label>
-            <input name="apellidos" type="text" value="{{$jugador->apellidos}}">
-        </div>
+            <input name="apellidos" type="text" value="{{old('apellidos', $jugador->apellidos)}}">
+            @error('apellidos')
+            <br>
+            <small>*{{$message}}</small>
+            <br>
+            @enderror
 
-        <div class="row mb-3">
             <label for="posicion" class="form-label">Posición</label>
-            <input name="posicion" type="text" value="{{$jugador->posicion}}">
+            <input name="posicion" type="text" value="{{old('posicion', $jugador->posicion)}}">
+            @error('posicion')
+            <br>
+            <small>*{{$message}}</small>
+            <br>
+            @enderror
         </div>
 
         <button type="submit" class="btn btn-primary">Guardar</button>
+
     </form>
 @endsection

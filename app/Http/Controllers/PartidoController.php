@@ -8,6 +8,8 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use App\Models\Partido;
 
+use App\Http\Requests\StorePartido;
+
 class PartidoController extends Controller
 {
     /**
@@ -35,10 +37,10 @@ class PartidoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
+     * @param  StorePartido  $request
      * @return RedirectResponse
      */
-    public function store(Request $request): RedirectResponse
+    public function store(StorePartido $request): RedirectResponse
     {
         $partido = Partido::create($request->all());
         return redirect()->route('partido.show', $partido);

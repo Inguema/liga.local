@@ -30,7 +30,7 @@
         </div>
         <div class="row mb-3">
             <label for="marcador_local" class="form-label">Marcador Local</label>
-            <input name="marcador_local" type="number" value="{{$partido->marcador_local}}" class="form-control">
+            <input name="marcador_local" type="number" value="{{$partido->marcador_local}}" class="form-control" required>
         </div>
         <div class="row mb-3">
             <select class="form-select" name="equipo_visitante_id" required>
@@ -46,7 +46,7 @@
         </div>
         <div class="row mb-3">
             <label for="marcador_visitante" class="form-label">Marcador Visitante</label>
-            <input name="marcador_visitante" type="number" value="{{$partido->marcador_visitante}}" class="form-control">
+            <input name="marcador_visitante" type="number" value="{{$partido->marcador_visitante}}" class="form-control" required>
         </div>
         <button type="submit" class="btn btn-info">Enviar</button>
     </form>

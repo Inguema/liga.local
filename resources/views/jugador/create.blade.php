@@ -11,7 +11,7 @@
         </div>
     </nav>
 
-    <h4>Crear Equipos</h4>
+    <h4>Nuevo Jugador</h4>
 
     <form action="{{route('jugador.store')}}" method="post">
 
@@ -19,13 +19,28 @@
 
         <div class="row mb-3">
             <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" placeholder="Introduzca nombre" name="nombre" required>
+            <input type="text" class="form-control" placeholder="Introduzca nombre" name="nombre" value="{{old('nombre')}}">
+            @error('nombre')
+            <br>
+            <small>*{{$message}}</small>
+            <br>
+            @enderror
 
             <label for="apellidos" class="form-label">Apellidos</label>
-            <input type="text" class="form-control" placeholder="Introduzca apellidos" name="apellidos" required>
+            <input type="text" class="form-control" placeholder="Introduzca apellidos" name="apellidos" value="{{old('apellidos')}}">
+            @error('apellidos')
+            <br>
+            <small>*{{$message}}</small>
+            <br>
+            @enderror
 
             <label for="posicion" class="form-label">Posición</label>
-            <input type="text" class="form-control" placeholder="Introduzca posicion" name="posicion" required>
+            <input type="text" class="form-control" placeholder="Introduzca posicion" name="posicion" value="{{old('posicion')}}">
+            @error('posicion')
+            <br>
+            <small>*{{$message}}</small>
+            <br>
+            @enderror
         </div>
 
         <div class="row mb-3">
@@ -37,7 +52,7 @@
             </select>
         </div>
 
-        <button type="submit" class="btn btn-info">Enviar formulario</button>
+        <button type="submit" class="btn btn-info">Enviar</button>
 
     </form>
 @endsection

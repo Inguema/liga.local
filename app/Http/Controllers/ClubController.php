@@ -6,6 +6,8 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
+use App\Http\Requests\StoreClub;
+
 use App\Models\Club;
 
 class ClubController extends Controller
@@ -32,11 +34,11 @@ class ClubController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param StoreClub $request
      * @return RedirectResponse
      *
      */
-    public function store(Request $request): RedirectResponse
+    public function store(StoreClub $request): RedirectResponse
     {
         $clubs = Club::create($request->all());
         return redirect()->route('club.show', $clubs);
@@ -67,11 +69,11 @@ class ClubController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param StoreClub $request
      * @param  Club $club
      * @return RedirectResponse
      */
-    public function update(Request $request, Club $club): RedirectResponse
+    public function update(StoreClub $request, Club $club): RedirectResponse
     {
         $club->update($request->all());
         return redirect()->route('club.show', $club);

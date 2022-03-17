@@ -6,6 +6,7 @@ use App\Models\Club;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreEquipo;
 
 use App\Models\Equipo;
 
@@ -41,10 +42,10 @@ class EquipoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
+     * @param  StoreEquipo  $request
      * @return RedirectResponse
      */
-    public function store(Request $request): RedirectResponse
+    public function store(StoreEquipo $request): RedirectResponse
     {
         $equipo = Equipo::create($request->all());
 
@@ -83,7 +84,6 @@ class EquipoController extends Controller
     public function update(Request $request, Equipo $equipo): RedirectResponse
     {
         $equipo->update($request->all());
-
         return redirect()->route('equipo.show', $equipo);
     }
 

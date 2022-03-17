@@ -9,7 +9,7 @@
             <a class="navbar-brand" href="{{route('partido.index')}}">Volver a equipos</a>
         </div>
     </nav>
-    <h4>Partidos</h4>
+    <h4>Nuevo Partido</h4>
     <form action="{{route('partido.store')}}" method="post">
         @csrf
         <div class="row mb-3">
@@ -23,6 +23,11 @@
         <div class="row mb-3">
             <label for="marcador_local" class="form-label">Marcador Local</label>
             <input name="marcador_local" type="number" value="" class="form-control">
+            @error('marcador_local')
+            <br>
+            <small>*{{$message}}</small>
+            <br>
+            @enderror
         </div>
         <div class="row mb-3">
             <select class="form-select" name="equipo_visitante_id" required>
@@ -35,6 +40,11 @@
         <div class="row mb-3">
             <label for="marcador_visitante" class="form-label">Marcador Visitante</label>
             <input name="marcador_visitante" type="number" value="" class="form-control">
+            @error('marcador_visitante')
+            <br>
+            <small>*{{$message}}</small>
+            <br>
+            @enderror
         </div>
         <button type="submit" class="btn btn-info">Enviar</button>
     </form>

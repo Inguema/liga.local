@@ -19,13 +19,13 @@
 
         <div class="row mb-3">
             <label for="nombre" class="form-label">Nombre Equipo</label>
-            <input name="nombre" type="text" value="{{$equipo->nombre}}">
+            <input name="nombre" type="text" value="{{old('nombre', $equipo->nombre)}}">
 
-    {{--        @error('name')
+        @error('name')
             <br>
             <small>*{{$message}}</small>
             <br>
-            @enderror--}}
+        @enderror
         </div>
 
         <button type="submit" class="btn btn-primary">Guardar</button>

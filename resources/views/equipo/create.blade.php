@@ -19,13 +19,13 @@
 
         <div class="row mb-3">
             <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" placeholder="Introduzca un nombre" name="nombre" required>
+            <input type="text" class="form-control" placeholder="Introduzca nombre" name="nombre" value="{{old('nombre')}}">
 
-{{--            @error('nombre')
+        @error('nombre')
             <br>
             <small>*{{$message}}</small>
             <br>
-            @enderror--}}
+        @enderror
         </div>
 
         <div class="row mb-3">
@@ -37,7 +37,7 @@
             </select>
         </div>
 
-        <button type="submit" class="btn btn-info">Enviar formulario</button>
+        <button type="submit" class="btn btn-info">Enviar</button>
 
     </form>
 @endsection

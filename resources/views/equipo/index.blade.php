@@ -32,9 +32,9 @@
                 </td>
                 <td>
                     <div class="btn-group" role="group" aria-label="Basic outlined example">
-                        <a href="{{route('equipo.show', $equipo->id)}}" class="btn btn-outline-primary">Ver</a>>
-                        <a href="{{route('equipo.edit', $equipo->id)}}" class="btn btn-outline-primary">Editar</a>>
-                        <a href="{{route('equipo.destroy', $equipo->id)}}" class="btn btn-outline-primary">Eliminar</a>>
+                        <a href="{{route('equipo.show', $equipo->id)}}" class="btn btn-outline-primary">Ver</a>
+                        <a href="{{route('equipo.edit', $equipo->id)}}" class="btn btn-outline-primary">Editar</a>
+                        <a href="{{route('equipo.destroy', $equipo->id)}}" class="btn btn-outline-primary">Eliminar</a>
                     </div>
                 </td>
             </tr>
