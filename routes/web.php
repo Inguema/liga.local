@@ -17,8 +17,19 @@ use App\Http\Controllers\PartidoController;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
 // Ruta inicio de la vista welcome
 Route::get('/', [InicioController::class, 'index'])->name('welcome');
+Route::get('/admin', [InicioController::class, 'admin'])->name('admin');
 
 // Rutas clubs
 Route::get('/clubs', [ClubController::class, 'index'])->name('club.index');
