@@ -3,22 +3,13 @@
 @section('title', 'Editar ' . $jugador->nombre)
 
 @section('content')
-    <nav class="navbar navbar-light bg-light">
-        <div>
-            <a class="navbar-brand" href="{{route('welcome')}}">Home</a>
-            <a class="navbar-brand" href="{{route('jugador.create')}}">Añadir jugador</a>
-            <a class="navbar-brand" href="{{route('jugador.index')}}">Volver a jugadores</a>
-        </div>
-    </nav>
-
-    <h4>Modificar ficha del jugador {{$jugador->nombre}}{{' '}}{{$jugador->apellidos}}</h4>
-
+    <br>
     <form action="{{route('jugador.update', $jugador->id)}}" method="post">
         @csrf
         @method('put')
 
         <div class="row mb-3">
-            <label for="nombre" class="form-label">Nombre Jugador</label>
+            <label for="nombre" class="form-label"><strong>Nombre Jugador</strong></label>
             <input name="nombre" type="text" value="{{old('nombre',$jugador->nombre)}}">
             @error('nombre')
             <br>
@@ -26,7 +17,7 @@
             <br>
             @enderror
 
-            <label for="apellidos" class="form-label">Apellidos Jugador</label>
+            <label for="apellidos" class="form-label"><strong>Apellidos Jugador</strong></label>
             <input name="apellidos" type="text" value="{{old('apellidos', $jugador->apellidos)}}">
             @error('apellidos')
             <br>
@@ -34,7 +25,7 @@
             <br>
             @enderror
 
-            <label for="posicion" class="form-label">Posición</label>
+            <label for="posicion" class="form-label"><strong>Posición</strong></label>
             <input name="posicion" type="text" value="{{old('posicion', $jugador->posicion)}}">
             @error('posicion')
             <br>
@@ -43,7 +34,7 @@
             @enderror
         </div>
 
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-secondary">Guardar</button>
 
     </form>
 @endsection

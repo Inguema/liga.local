@@ -2,16 +2,7 @@
 @section('title', 'Editar ' . 'Partidos')
 
 @section('content')
-    <nav class="navbar navbar-light bg-light">
-        <div>
-            <a class="navbar-brand" href="{{route('welcome')}}">Home</a>
-            <a class="navbar-brand" href="{{route('partido.create')}}">Partido Nuevo</a>
-            <a class="navbar-brand" href="{{route('partido.index')}}">Volver a partidos</a>
-        </div>
-    </nav>
-
-    <h4>Modificar Partido</h4>
-
+    <br>
     <form action="{{route('partido.update', $partido->id)}}" method="post">
         @csrf
         @method('put')
@@ -29,7 +20,7 @@
             </select>
         </div>
         <div class="row mb-3">
-            <label for="marcador_local" class="form-label">Marcador Local</label>
+            <label for="marcador_local" class="form-label"><strong>Marcador Local</strong></label>
             <input name="marcador_local" type="number" value="{{$partido->marcador_local}}" class="form-control" required>
         </div>
         <div class="row mb-3">
@@ -45,9 +36,9 @@
             </select>
         </div>
         <div class="row mb-3">
-            <label for="marcador_visitante" class="form-label">Marcador Visitante</label>
+            <label for="marcador_visitante" class="form-label"><strong>Marcador Visitante</strong></label>
             <input name="marcador_visitante" type="number" value="{{$partido->marcador_visitante}}" class="form-control" required>
         </div>
-        <button type="submit" class="btn btn-info">Enviar</button>
+        <button type="submit" class="btn btn-secondary">Guardar</button>
     </form>
 @endsection

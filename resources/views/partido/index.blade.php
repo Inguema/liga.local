@@ -2,14 +2,11 @@
 @section('title', 'Partidos')
 
 @section('content')
-    <nav class="navbar navbar-light bg-light">
-        <div>
-            <a class="navbar-brand" href="{{route('welcome')}}">Home</a>
-            <a class="navbar-brand" href="{{route('partido.create')}}">Partido Nuevo</a>
-        </div>
+    <nav class="navbar">
+        <a href="{{route('partido.create')}}" class="btn btn-outline-warning btn-lg active" role="button" aria-pressed="true">Añadir Partidos</a>
     </nav>
 
-    <h4>Partidos</h4>
+    <h1><strong>Listado de Partidos</strong></h1>
 
     <table class="table">
         <thead>
@@ -45,7 +42,5 @@
         @endforeach
         </tbody>
     </table>
-
-{{--    {{$clubs->links()}}--}}
-
+{{$partidos->links()}}
 @endsection

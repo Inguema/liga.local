@@ -6,9 +6,32 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <title>@yield('title')</title>
+    <!-- Tailwind-css CDN  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.4.6/tailwind.min.css" />
+
+    <nav class="bg-green-600 shadow-lg">
+        <div class="container mx-auto">
+            <div class="sm:flex justify-around">
+                <a href="/" class="text-white text-3xl font-bold p-3">Liga Local It Academy</a>
+                <ul class="text-gray-400 sm:self-center text-xl border-t sm:border-none">
+                    <li class="sm:inline-block">
+                        <a href="/clubs" class="p-3 hover:text-white">Clubs</a>
+                    </li>
+                    <li class="sm:inline-block">
+                        <a href="/equipos" class="p-3 hover:text-white">Equipos</a>
+                    </li>
+                    <li class="sm:inline-block">
+                        <a href="/partidos" class="p-3 hover:text-white">Partidos</a>
+                    </li>
+                    <li class="sm:inline-block">
+                        <a href="/jugadores" class="p-3 hover:text-white">Jugadores</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </head>
 <body>
-<h1 class="bg-info text-white text-center">CRUD Liga de Fútbol It Academy</h1>
 
 <div class="container">
     @yield('content')
@@ -16,10 +39,10 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-<footer class="bg-light text-center text-lg-start" style="padding-top: 20px;">
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+<footer class="bg-light text-center text-sm">
+    <div class="ml-4 text-sm leading-7 font-semibold text-gray-900 dark:text-white">
         © 2022 Copyright:
-        <a class="text-dark" href="https://mdbootstrap.com/">liga.test</a>
+        <a class="text-dark" href="/">liga.test</a>
     </div>
 </footer>
 

@@ -3,22 +3,13 @@
 @section('title', 'Editar ' . $club->nombre)
 
 @section('content')
-    <nav class="navbar navbar-light bg-light">
-        <div>
-            <a class="navbar-brand" href="{{route('welcome')}}">Home</a>
-            <a class="navbar-brand" href="{{route('club.create')}}">Crear club</a>
-            <a class="navbar-brand" href="{{route('club.index')}}">Volver a clubs</a>
-        </div>
-    </nav>
-
-    <h4>Modificar {{$club->nombre}}</h4>
-
+    <br>
     <form action="{{route('club.update', $club->id)}}" method="post">
         @csrf
         @method('put')
 
         <div class="row mb-3">
-            <label for="nombre" class="form-label">Nombre Club</label>
+            <label for="nombre" class="form-label"><strong>Nombre</strong></label>
             <input name="nombre" type="text" value="{{old('nombre', $club->nombre)}}">
 
         @error('nombre')
@@ -27,7 +18,6 @@
             <br>
         @enderror
         </div>
-
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-secondary">Guardar</button>
     </form>
 @endsection

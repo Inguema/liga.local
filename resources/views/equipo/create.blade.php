@@ -3,22 +3,16 @@
 @section('title', 'Equipos create')
 
 @section('content')
-    <nav class="navbar navbar-light bg-light">
-        <div>
-            <a class="navbar-brand" href="{{route('welcome')}}">Home</a>
-            <a class="navbar-brand" href="{{route('equipo.create')}}">Crear equipo</a>
-            <a class="navbar-brand" href="{{route('equipo.index')}}">Volver a equipos</a>
-        </div>
+    <nav class="navbar">
+        <a href="{{route('equipo.create')}}" class="btn btn-outline-warning btn-lg active" role="button" aria-pressed="true">Añadir Equipo</a>
     </nav>
-
-    <h4>Crear Equipos</h4>
 
     <form action="{{route('equipo.store')}}" method="post">
 
         @csrf
 
         <div class="row mb-3">
-            <label for="nombre" class="form-label">Nombre</label>
+            <label for="nombre" class="form-label"><strong>Nombre</strong></label>
             <input type="text" class="form-control" placeholder="Introduzca nombre" name="nombre" value="{{old('nombre')}}">
 
         @error('nombre')
@@ -37,7 +31,7 @@
             </select>
         </div>
 
-        <button type="submit" class="btn btn-info">Enviar</button>
+        <button type="submit" class="btn btn-secondary">Enviar</button>
 
     </form>
 @endsection

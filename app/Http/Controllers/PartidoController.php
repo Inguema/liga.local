@@ -19,7 +19,7 @@ class PartidoController extends Controller
      */
     public function index(): View
     {
-        $partidos = Partido::all();
+        $partidos = Partido::paginate(10);
         return view('partido.index')->with('partidos', $partidos);
     }
 

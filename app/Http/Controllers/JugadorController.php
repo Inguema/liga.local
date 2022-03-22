@@ -19,7 +19,7 @@ class JugadorController extends Controller
      */
     public function index(): View
     {
-        $jugadores = Jugador::all();
+        $jugadores = Jugador::paginate(10);
         return view('jugador.index')->with('jugadores', $jugadores);
     }
 

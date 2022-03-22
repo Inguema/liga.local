@@ -2,14 +2,11 @@
 @section('title', 'Jugadores')
 
 @section('content')
-    <nav class="navbar navbar-light bg-light">
-        <div>
-            <a class="navbar-brand" href="{{route('welcome')}}">Home</a>
-            <a class="navbar-brand" href="{{route('jugador.create')}}">Añadir jugador</a>
-        </div>
+    <nav class="navbar">
+        <a href="{{route('jugador.create')}}" class="btn btn-outline-warning btn-lg active" role="button" aria-pressed="true">Añadir Jugador</a>
     </nav>
 
-    <h4>Jugadores</h4>
+    <h1><strong>Listado de Jugadores</strong></h1>
 
     <table class="table">
         <thead>
@@ -59,7 +56,5 @@
         @endforeach
         </tbody>
     </table>
-
-{{--    {{$clubs->links()}}--}}
-
+{{$jugadores->links()}}
 @endsection

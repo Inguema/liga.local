@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 
 use App\Http\Requests\StoreClub;
 
@@ -18,7 +17,7 @@ class ClubController extends Controller
      */
     public function index(): View
     {
-        $clubs = Club::all();
+        $clubs = Club::paginate(5);
         return view('club.index')->with('clubs', $clubs);
     }
 
@@ -28,7 +27,8 @@ class ClubController extends Controller
      */
     public function create(): View
     {
-        return view('club.create');
+        $clubs = Club::all();
+        return view('club.create', compact('clubs'));
     }
 
     /**

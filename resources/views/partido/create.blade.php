@@ -2,14 +2,10 @@
 @section('title', 'Partidos')
 
 @section('content')
-    <nav class="navbar navbar-light bg-light">
-        <div>
-            <a class="navbar-brand" href="{{route('welcome')}}">Home</a>
-            <a class="navbar-brand" href="{{route('partido.create')}}">Partido Nuevo</a>
-            <a class="navbar-brand" href="{{route('partido.index')}}">Volver a equipos</a>
-        </div>
+    <nav class="navbar">
+        <a href="{{route('partido.create')}}" class="btn btn-outline-warning btn-lg active" role="button" aria-pressed="true">Añadir Partidos</a>
     </nav>
-    <h4>Nuevo Partido</h4>
+    <br>
     <form action="{{route('partido.store')}}" method="post">
         @csrf
         <div class="row mb-3">
@@ -21,7 +17,7 @@
             </select>
         </div>
         <div class="row mb-3">
-            <label for="marcador_local" class="form-label">Marcador Local</label>
+            <label for="marcador_local" class="form-label"><strong> Marcador Local</strong> </label>
             <input name="marcador_local" type="number" value="" class="form-control">
             @error('marcador_local')
             <br>
@@ -38,7 +34,7 @@
             </select>
         </div>
         <div class="row mb-3">
-            <label for="marcador_visitante" class="form-label">Marcador Visitante</label>
+            <label for="marcador_visitante" class="form-label"><strong> Marcador Visitante</strong></label>
             <input name="marcador_visitante" type="number" value="" class="form-control">
             @error('marcador_visitante')
             <br>
@@ -46,7 +42,7 @@
             <br>
             @enderror
         </div>
-        <button type="submit" class="btn btn-info">Enviar</button>
+        <button type="submit" class="btn btn-secondary">Enviar</button>
     </form>
 @endsection
 

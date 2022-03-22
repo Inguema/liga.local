@@ -2,18 +2,14 @@
 @section('title', 'Clubs ' . $club->nombre)
 
 @section('content')
-    <nav class="navbar navbar-light bg-light">
-        <div>
-            <a class="navbar-brand" href="{{route('welcome')}}">Home</a>
-            <a class="navbar-brand" href="{{route('club.create')}}">Crear club</a>
-            <a class="navbar-brand" href="{{route('club.index')}}">Volver a clubs</a>
-        </div>
+    <nav class="navbar">
+        <a href="{{route('club.create')}}" class="btn btn-outline-warning btn-lg active" role="button" aria-pressed="true">Añadir Club</a>
     </nav>
-    <h4>{{$club->nombre}}</h4>
+
     <div class="row mb-3">
-        <p>Id: {{$club->id}}</p>
-        <p>Nombre: {{$club->nombre}}</p>
-        <p>Fecha de creación: {{$club->created_at}}</p>
-        <p>Fecha de actualización: {{$club->updated_at}}</p>
+        <p><strong>Id: </strong>{{$club->id}}</p>
+        <p><strong>Nombre: </strong>{{$club->nombre}}</p>
+        <p><strong>Fecha de creación: </strong>{{$club->created_at}}</p>
+        <p><strong>Fecha de actualización: </strong>{{$club->updated_at}}</p>
     </div>
 @endsection

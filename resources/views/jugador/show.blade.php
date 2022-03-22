@@ -2,50 +2,16 @@
 @section('title', 'Jugador ' . $jugador->nombre)
 
 @section('content')
-    <nav class="navbar navbar-light bg-light">
-        <div>
-            <a class="navbar-brand" href="{{route('welcome')}}">Home</a>
-            <a class="navbar-brand" href="{{route('jugador.create')}}">Añadir jugador</a>
-            <a class="navbar-brand" href="{{route('jugador.index')}}">Volver a jugadores</a>
-        </div>
+    <nav class="navbar">
+        <a href="{{route('jugador.create')}}" class="btn btn-outline-warning btn-lg active" role="button" aria-pressed="true">Añadir Jugador</a>
     </nav>
 
-    <h4>Jugador {{$jugador->nombre}}{{' '}}{{$jugador->apellidos}}</h4>
-
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellidos</th>
-            <th scope="col">Posición</th>
-            <th scope="col">Id Equipo</th>
-            <th scope="col">Opciones</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <th scope="row">{{$jugador->id}}</th>
-            <td>
-                {{$jugador->nombre}}
-            </td>
-            <td>
-                {{$jugador->apellidos}}
-            </td>
-            <td>
-                {{$jugador->posicion}}
-            </td>
-            <td>
-                {{$jugador->equipo_id}}
-            </td>
-            <td>
-                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                    <a href="{{route('jugador.edit', $jugador->id)}}" class="btn btn-outline-primary">Editar</a>
-                    <a href="{{route('jugador.destroy', $jugador->id)}}" class="btn btn-outline-primary">Eliminar</a>
-                </div>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-
+    <div class="row mb-3">
+        <p><strong>Id: </strong>{{$jugador->id}}</p>
+        <p><strong>Nombre: </strong>{{$jugador->nombre}}</p>
+        <p><strong>Apellidos: </strong>{{$jugador->apellidos}}</p>
+        <p><strong>Posición: </strong>{{$jugador->posicion}}</p>
+        <p><strong>Fecha de creación: </strong>{{$jugador->created_at}}</p>
+        <p><strong>Fecha de actualización: </strong>{{$jugador->updated_at}}</p>
+    </div>
 @endsection

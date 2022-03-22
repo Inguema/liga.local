@@ -2,14 +2,11 @@
 @section('title', 'Clubs')
 
 @section('content')
-    <nav class="navbar navbar-light bg-light">
-        <div>
-            <a class="navbar-brand" href="{{route('welcome')}}">Home</a>
-            <a class="navbar-brand" href="{{route('club.create')}}">Crear club</a>
-        </div>
+    <nav class="navbar">
+            <a href="{{route('club.create')}}" class="btn btn-outline-warning btn-lg active" role="button" aria-pressed="true">Añadir Club</a>
     </nav>
 
-    <h4>Clubs</h4>
+    <h1><strong>Listado de Clubs</strong></h1>
 
     <table class="table">
         <thead>
@@ -36,12 +33,12 @@
                 </td>
                 <td>
                     <div class="btn-group" role="group" aria-label="Basic outlined example">
-                        <a href="{{route('equipo.create', $club->id)}}" class="btn btn-outline-primary">Añadir Equipo</a>
+                        <a href="{{route('equipo.create', $club->id)}}" class="btn btn-warning">Añadir Equipo</a>
                     </div>
                 </td>
             </tr>
         @endforeach
         </tbody>
     </table>
-{{--{{$clubs->links()}}--}}
+{{$clubs->links()}}
 @endsection
