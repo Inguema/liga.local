@@ -11,13 +11,14 @@
         <div class="row mb-3">
             <label for="nombre" class="form-label"><strong>Nombre</strong></label>
             <input name="nombre" type="text" value="{{old('nombre', $club->nombre)}}">
-
         @error('nombre')
             <br>
             <small>*{{$message}}</small>
             <br>
         @enderror
         </div>
+
         <button type="submit" class="btn btn-secondary">Guardar</button>
+        <a href="{{route('club.index')}}" class="btn btn-secondary" role="button" aria-pressed="true">Volver a Clubs</a>
     </form>
 @endsection

@@ -4,7 +4,7 @@
 
 @section('content')
     <nav class="navbar">
-        <a href="{{route('club.create')}}" class="btn btn-outline-warning btn-lg active" role="button" aria-pressed="true">Añadir Club</a>
+        <a href="{{route('club.create')}}" class="btn btn-outline-warning active" role="button" aria-pressed="true">Añadir Club</a>
     </nav>
 
     <form action="{{route('club.store')}}" method="post">
@@ -21,9 +21,7 @@
             <br>
         @enderror
         </div>
-
         <button type="submit" class="btn btn-secondary">Enviar</button>
-
     </form>
 @endsection
 

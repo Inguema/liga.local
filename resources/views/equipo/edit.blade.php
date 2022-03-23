@@ -19,5 +19,6 @@
         @enderror
         </div>
         <button type="submit" class="btn btn-secondary">Guardar</button>
+        <a href="{{route('equipo.index')}}" class="btn btn-secondary" role="button" aria-pressed="true">Volver a Equipos</a>
     </form>
 @endsection

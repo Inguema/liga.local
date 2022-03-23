@@ -3,7 +3,7 @@
 
 @section('content')
     <nav class="navbar">
-        <a href="{{route('partido.create')}}" class="btn btn-outline-warning btn-lg active" role="button" aria-pressed="true">Añadir Partidos</a>
+        <a href="{{route('partido.create')}}" class="btn btn-outline-warning active" role="button" aria-pressed="true">Añadir Partidos</a>
     </nav>
 
     <h1><strong>Listado de Partidos</strong></h1>

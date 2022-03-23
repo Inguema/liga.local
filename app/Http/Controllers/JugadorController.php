@@ -52,9 +52,9 @@ class JugadorController extends Controller
      * @param  Jugador $jugador
      * @return View
      */
-    public function show( Jugador $jugador, Equipo $equipo): View
+    public function show(Jugador $jugador): View
     {
-        return view('jugador.show', compact('jugador', 'equipo'));
+        return view('jugador.show', compact('jugador'));
     }
 
     /**
@@ -78,7 +78,6 @@ class JugadorController extends Controller
     public function update(StoreJugador $request, Jugador $jugador): RedirectResponse
     {
         $jugador->update($request->all());
-
         return redirect()->route('jugador.index', $jugador);
     }
 
@@ -91,7 +90,6 @@ class JugadorController extends Controller
     public function destroy(Jugador $jugador): RedirectResponse
     {
         $jugador->delete();
-
         return redirect()->route('jugador.index');
     }
 }

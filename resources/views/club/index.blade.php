@@ -3,7 +3,7 @@
 
 @section('content')
     <nav class="navbar">
-            <a href="{{route('club.create')}}" class="btn btn-outline-warning btn-lg active" role="button" aria-pressed="true">Añadir Club</a>
+            <a href="{{route('club.create')}}" class="btn btn-outline-warning active" role="button" aria-pressed="true">Añadir Club</a>
     </nav>
 
     <h1><strong>Listado de Clubs</strong></h1>

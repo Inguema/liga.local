@@ -3,7 +3,7 @@
 
 @section('content')
     <nav class="navbar">
-        <a href="{{route('partido.create')}}" class="btn btn-outline-warning btn-lg active" role="button" aria-pressed="true">Añadir Partidos</a>
+        <a href="{{route('partido.create')}}" class="btn btn-outline-warning active" role="button" aria-pressed="true">Añadir Partidos</a>
     </nav>
     <br>
     <form action="{{route('partido.store')}}" method="post">
@@ -43,6 +43,7 @@
             @enderror
         </div>
         <button type="submit" class="btn btn-secondary">Enviar</button>
+        <a href="{{route('partido.index')}}" class="btn btn-secondary" role="button" aria-pressed="true">Volver a Partidos</a>
     </form>
 @endsection
 

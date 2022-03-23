@@ -4,7 +4,7 @@
 
 @section('content')
     <nav class="navbar">
-        <a href="{{route('equipo.create')}}" class="btn btn-outline-warning btn-lg active" role="button" aria-pressed="true">Añadir Equipo</a>
+        <a href="{{route('equipo.create')}}" class="btn btn-outline-warning active" role="button" aria-pressed="true">Añadir Equipo</a>
     </nav>
 
     <form action="{{route('equipo.store')}}" method="post">

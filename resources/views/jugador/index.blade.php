@@ -3,7 +3,7 @@
 
 @section('content')
     <nav class="navbar">
-        <a href="{{route('jugador.create')}}" class="btn btn-outline-warning btn-lg active" role="button" aria-pressed="true">Añadir Jugador</a>
+        <a href="{{route('jugador.create')}}" class="btn btn-outline-warning active" role="button" aria-pressed="true">Añadir Jugador</a>
     </nav>
 
     <h1><strong>Listado de Jugadores</strong></h1>

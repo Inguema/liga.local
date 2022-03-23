@@ -35,6 +35,7 @@
         </div>
 
         <button type="submit" class="btn btn-secondary">Guardar</button>
+        <a href="{{route('jugador.index')}}" class="btn btn-secondary" role="button" aria-pressed="true">Volver a Jugadores</a>
 
     </form>
 @endsection

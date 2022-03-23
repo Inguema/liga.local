@@ -4,7 +4,7 @@
 
 @section('content')
     <nav class="navbar">
-        <a href="{{route('jugador.create')}}" class="btn btn-outline-warning btn-lg active" role="button" aria-pressed="true">Añadir Jugador</a>
+        <a href="{{route('jugador.create')}}" class="btn btn-outline-warning active" role="button" aria-pressed="true">Añadir Jugador</a>
     </nav>
 
     <form action="{{route('jugador.store')}}" method="post">
@@ -45,9 +45,7 @@
                 @endforeach
             </select>
         </div>
-
         <button type="submit" class="btn btn-secondary">Enviar</button>
-
     </form>
 @endsection
 

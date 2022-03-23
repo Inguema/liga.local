@@ -3,7 +3,7 @@
 
 @section('content')
     <nav class="navbar">
-        <a href="{{route('jugador.create')}}" class="btn btn-outline-warning btn-lg active" role="button" aria-pressed="true">Añadir Jugador</a>
+        <a href="{{route('jugador.create')}}" class="btn btn-outline-warning active" role="button" aria-pressed="true">Añadir Jugador</a>
     </nav>
 
     <div class="row mb-3">
@@ -14,4 +14,7 @@
         <p><strong>Fecha de creación: </strong>{{$jugador->created_at}}</p>
         <p><strong>Fecha de actualización: </strong>{{$jugador->updated_at}}</p>
     </div>
+
+    <a href="{{route('jugador.index')}}" class="btn btn-secondary" role="button" aria-pressed="true">Volver a Jugadores</a>
+
 @endsection

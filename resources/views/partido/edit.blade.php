@@ -40,5 +40,6 @@
             <input name="marcador_visitante" type="number" value="{{$partido->marcador_visitante}}" class="form-control" required>
         </div>
         <button type="submit" class="btn btn-secondary">Guardar</button>
+        <a href="{{route('partido.index')}}" class="btn btn-secondary" role="button" aria-pressed="true">Volver a Partidos</a>
     </form>
 @endsection

@@ -3,7 +3,7 @@
 
 @section('content')
     <nav class="navbar">
-        <a href="{{route('equipo.create')}}" class="btn btn-outline-warning btn-lg active" role="button" aria-pressed="true">Añadir Equipo</a>
+        <a href="{{route('equipo.create')}}" class="btn btn-outline-warning active" role="button" aria-pressed="true">Añadir Equipo</a>
     </nav>
 
     <div class="row mb-3">
@@ -13,4 +13,5 @@
         <p><strong>Fecha de actualización: </strong>{{$equipo->updated_at}}</p>
     </div>
 
+    <a href="{{route('equipo.index')}}" class="btn btn-secondary" role="button" aria-pressed="true">Volver a Equipos</a>
 @endsection

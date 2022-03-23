@@ -55,15 +55,15 @@ Route::get('/equipos/destroy/{equipo}', [EquipoController::class, 'destroy'])->n
 
 
 // Rutas jugadores
-Route::resource('jugadores', JugadorController::class)->names('jugador');
+//Route::resource('jugadores', JugadorController::class)->names('jugador');
 
-/*Route::get('/jugadores', [JugadorController::class, 'index'])->name('jugador.index');
+Route::get('/jugadores', [JugadorController::class, 'index'])->name('jugador.index');
 Route::get('/jugadores/create', [JugadorController::class, 'create'])->name('jugador.create');
 Route::post('/jugadores/store', [JugadorController::class, 'store'])->name('jugador.store');
 Route::get('/jugadores/show/{jugador}', [JugadorController::class, 'show'])->name('jugador.show');
 Route::get('/jugadores/edit/{jugador}', [JugadorController::class, 'edit'])->name('jugador.edit');
 Route::put('/jugadores/update/{jugador}', [JugadorController::class, 'update'])->name('jugador.update');
-Route::get('/jugadores/destroy/{jugador}', [JugadorController::class, 'destroy'])->name('jugador.destroy');*/
+Route::get('/jugadores/destroy/{jugador}', [JugadorController::class, 'destroy'])->name('jugador.destroy');
 
 // Rutas partidos
 Route::resource('partidos', PartidoController::class)->names('partido');
