@@ -12,9 +12,11 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
+
+    protected $table = "users";
 
     /**
      * The attributes that are mass assignable.
