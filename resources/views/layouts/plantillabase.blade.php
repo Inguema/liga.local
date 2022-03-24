@@ -15,21 +15,32 @@
                 <a href="/" class="text-white text-3xl font-bold p-3">Liga Local It Academy</a>
                 <ul class="text-gray-400 sm:self-center text-xl border-t sm:border-none">
                     <li class="sm:inline-block">
-                        <a href="/clubs" class="p-3 hover:text-white">Clubs</a>
+                        <a href="{{route('club.index')}}" class="p-3 hover:text-white">Clubs</a>
                     </li>
                     <li class="sm:inline-block">
-                        <a href="/equipos" class="p-3 hover:text-white">Equipos</a>
+                        <a href="{{route('equipo.index')}}" class="p-3 hover:text-white">Equipos</a>
                     </li>
                     <li class="sm:inline-block">
-                        <a href="/partidos" class="p-3 hover:text-white">Partidos</a>
+                        <a href="{{route('partido.index')}}" class="p-3 hover:text-white">Partidos</a>
                     </li>
                     <li class="sm:inline-block">
-                        <a href="/jugadores" class="p-3 hover:text-white">Jugadores</a>
+                        <a href="{{route('jugador.index')}}" class="p-3 hover:text-white">Jugadores</a>
+                    </li>
+                    <li class="sm:inline-block">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="">Salir</button>
+                        </form>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    @if(session()->has('error'))
+        <div class="alert alert-danger">
+            {{ session()->get('error') }}
+        </div>
+    @endif
 </head>
 <body>
 

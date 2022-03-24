@@ -6,6 +6,7 @@ use App\Http\Controllers\EquipoController;
 use App\Http\Controllers\JugadorController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\PartidoController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,10 +18,6 @@ use App\Http\Controllers\PartidoController;
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
@@ -29,48 +26,58 @@ require __DIR__.'/auth.php';
 
 // Ruta inicio de la vista welcome
 Route::get('/', [InicioController::class, 'index'])->name('welcome');
-//Route::get('/admin', [InicioController::class, 'admin'])->name('admin');
 
-// Rutas clubs
-Route::resource('clubs', ClubController::class)->names('club');
+// Rutas protegidas
+Route::group(['middleware' => ['can:view']], function () {
 
-/*Route::get('/clubs', [ClubController::class, 'index'])->name('club.index');
-Route::get('/clubs/create', [ClubController::class, 'create'])->name('club.create');
-Route::post('/clubs/store', [ClubController::class, 'store'])->name('club.store');
-Route::get('/clubs/show/{club}', [ClubController::class, 'show'])->name('club.show');
-Route::get('/clubs/edit/{club}', [ClubController::class, 'edit'])->name('club.edit');
-Route::put('/clubs/update/{club}', [ClubController::class, 'update'])->name('club.update');
-Route::get('/clubs/destroy/{club}', [ClubController::class, 'destroy'])->name('club.destroy');*/
+    // Rutas clubs
+    Route::get('/clubs', [ClubController::class, 'index'])->name('club.index');
+    Route::get('/clubs/show/{club}', [ClubController::class, 'show'])->name('club.show');
 
-// Rutas equipos
-Route::resource('equipos', EquipoController::class)->names('equipo');
+    // Rutas equipos
+    Route::get('/equipos', [EquipoController::class, 'index'])->name('equipo.index');
+    Route::get('/equipos/show/{equipo}', [EquipoController::class, 'show'])->name('equipo.show');
 
-/*Route::get('/equipos', [EquipoController::class, 'index'])->name('equipo.index');
-Route::get('/equipos/create/{club?}', [EquipoController::class, 'create'])->name('equipo.create');
-Route::post('/equipos/store', [EquipoController::class, 'store'])->name('equipo.store');
-Route::get('/equipos/show/{equipo}', [EquipoController::class, 'show'])->name('equipo.show');
-Route::get('/equipos/edit/{equipo}', [EquipoController::class, 'edit'])->name('equipo.edit');
-Route::put('/equipos/update/{equipo}', [EquipoController::class, 'update'])->name('equipo.update');
-Route::get('/equipos/destroy/{equipo}', [EquipoController::class, 'destroy'])->name('equipo.destroy');*/
+    // Rutas jugadores
+    Route::get('/jugadores', [JugadorController::class, 'index'])->name('jugador.index');
+    Route::get('/jugadores/show/{jugador}', [JugadorController::class, 'show'])->name('jugador.show');
 
+    // Rutas partidos
+    Route::get('/partidos', [PartidoController::class, 'index'])->name('partido.index');
+    Route::get('/partidos/show/{partido}', [PartidoController::class, 'show'])->name('partido.show');
+});
 
-// Rutas jugadores
-//Route::resource('jugadores', JugadorController::class)->names('jugador');
+Route::group(['middleware' => ['can:edit']], function () {
 
-Route::get('/jugadores', [JugadorController::class, 'index'])->name('jugador.index');
-Route::get('/jugadores/create', [JugadorController::class, 'create'])->name('jugador.create');
-Route::post('/jugadores/store', [JugadorController::class, 'store'])->name('jugador.store');
-Route::get('/jugadores/show/{jugador}', [JugadorController::class, 'show'])->name('jugador.show');
-Route::get('/jugadores/edit/{jugador}', [JugadorController::class, 'edit'])->name('jugador.edit');
-Route::put('/jugadores/update/{jugador}', [JugadorController::class, 'update'])->name('jugador.update');
-Route::get('/jugadores/destroy/{jugador}', [JugadorController::class, 'destroy'])->name('jugador.destroy');
+    // Rutas clubs
+    Route::get('/clubs/create', [ClubController::class, 'create'])->name('club.create');
+    Route::post('/clubs/store', [ClubController::class, 'store'])->name('club.store');
+    Route::get('/clubs/edit/{club}', [ClubController::class, 'edit'])->name('club.edit');
+    Route::put('/clubs/update/{club}', [ClubController::class, 'update'])->name('club.update');
+    Route::get('/clubs/destroy/{club}', [ClubController::class, 'destroy'])->name('club.destroy');
 
-// Rutas partidos
-Route::resource('partidos', PartidoController::class)->names('partido');
-/*Route::get('/partidos', [PartidoController::class, 'index'])->name('partido.index');
-Route::get('/partidos/create', [PartidoController::class, 'create'])->name('partido.create');
-Route::post('/partidos/store', [PartidoController::class, 'store'])->name('partido.store');
-Route::get('/partidos/show/{partido}', [PartidoController::class, 'show'])->name('partido.show');
-Route::get('/partidos/edit/{partido}', [PartidoController::class, 'edit'])->name('partido.edit');
-Route::put('/partidos/update/{partido}', [PartidoController::class, 'update'])->name('partido.update');
-Route::get('/partidos/destroy/{partido}', [PartidoController::class, 'destroy'])->name('partido.destroy');*/
+    // Rutas equipos
+    Route::get('/equipos/create/{club?}', [EquipoController::class, 'create'])->name('equipo.create');
+    Route::post('/equipos/store', [EquipoController::class, 'store'])->name('equipo.store');
+    Route::get('/equipos/edit/{equipo}', [EquipoController::class, 'edit'])->name('equipo.edit');
+    Route::put('/equipos/update/{equipo}', [EquipoController::class, 'update'])->name('equipo.update');
+    Route::get('/equipos/destroy/{equipo}', [EquipoController::class, 'destroy'])->name('equipo.destroy');
+
+    // Rutas jugadores
+    Route::get('/jugadores/create', [JugadorController::class, 'create'])->name('jugador.create');
+    Route::post('/jugadores/store', [JugadorController::class, 'store'])->name('jugador.store');
+    Route::get('/jugadores/edit/{jugador}', [JugadorController::class, 'edit'])->name('jugador.edit');
+    Route::put('/jugadores/update/{jugador}', [JugadorController::class, 'update'])->name('jugador.update');
+    Route::get('/jugadores/destroy/{jugador}', [JugadorController::class, 'destroy'])->name('jugador.destroy');
+
+    // Rutas partidos
+    Route::resource('partidos', PartidoController::class)->names('partido');
+    Route::get('/partidos/create', [PartidoController::class, 'create'])->name('partido.create');
+    Route::post('/partidos/store', [PartidoController::class, 'store'])->name('partido.store');
+    Route::get('/partidos/edit/{partido}', [PartidoController::class, 'edit'])->name('partido.edit');
+    Route::put('/partidos/update/{partido}', [PartidoController::class, 'update'])->name('partido.update');
+    Route::get('/partidos/destroy/{partido}', [PartidoController::class, 'destroy'])->name('partido.destroy');
+
+    // Listado de users
+    Route::get('/users', [UserController::class, 'index'])->name('user.index');
+});

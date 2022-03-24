@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Partido;
 
 use App\Http\Requests\StorePartido;
+use Illuminate\Support\Facades\Session;
 
 class PartidoController extends Controller
 {
@@ -42,7 +43,12 @@ class PartidoController extends Controller
      */
     public function store(StorePartido $request): RedirectResponse
     {
-        $partido = Partido::create($request->all());
+        if ($request->get('equipo_local_id') === $request->get('equipo_visitante_id')) {
+            Session::flash('error', 'No se puede seleccionar el mismo equipo como local y visitante');
+            return redirect()->route('partido.create');
+        } else {
+            $partido = Partido::create($request->all());
+        }
         return redirect()->route('partido.show', $partido);
     }
 

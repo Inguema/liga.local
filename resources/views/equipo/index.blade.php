@@ -13,19 +13,24 @@
         <tr>
             <th scope="col">Id</th>
             <th scope="col">Nombre Equipo</th>
-            <th scope="col">Id Club</th>
+            <th scope="col">Nombre Club</th>
             <th scope="col">Opciones</th>
         </tr>
         </thead>
         <tbody>
         @foreach($equipos as $equipo)
+            @php
+                if (!empty($equipo)) {
+                    $club = App\Models\Club::find($equipo->club_id);
+                }
+            @endphp
             <tr>
                 <th scope="row">{{$equipo->id}}</th>
                 <td>
                     {{$equipo->nombre}}
                 </td>
                 <td>
-                    {{$equipo->club_id}}
+                    {{$club->nombre}}
                 </td>
                 <td>
                     <div class="btn-group" role="group" aria-label="Basic outlined example">
