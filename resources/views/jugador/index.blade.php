@@ -2,9 +2,11 @@
 @section('title', 'Jugadores')
 
 @section('content')
+    @can('edit')
     <nav class="navbar">
         <a href="{{route('jugador.create')}}" class="btn btn-outline-warning active" role="button" aria-pressed="true">Añadir Jugador</a>
     </nav>
+    @endcan
 
     <h1><strong>Listado de Jugadores</strong></h1>
 
@@ -48,8 +50,10 @@
                 <td>
                     <div class="btn-group" role="group" aria-label="Basic outlined example">
                         <a href="{{route('jugador.show', $jugador->id)}}" class="btn btn-outline-primary">Ver</a>
-                        <a href="{{route('jugador.edit', $jugador->id)}}" class="btn btn-outline-primary">Editar</a>
-                        <a href="{{route('jugador.destroy', $jugador->id)}}" class="btn btn-outline-primary">Eliminar</a>
+                        @can('edit')
+                            <a href="{{route('jugador.edit', $jugador->id)}}" class="btn btn-outline-primary">Editar</a>
+                            <a href="{{route('jugador.destroy', $jugador->id)}}" class="btn btn-outline-primary">Eliminar</a>
+                        @endcan
                     </div>
                 </td>
             </tr>

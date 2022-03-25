@@ -2,9 +2,11 @@
 @section('title', 'Equipos ' . $equipo->nombre)
 
 @section('content')
+    @can('edit')
     <nav class="navbar">
         <a href="{{route('equipo.create')}}" class="btn btn-outline-warning active" role="button" aria-pressed="true">Añadir Equipo</a>
     </nav>
+    @endcan
 
     <div class="row mb-3">
         <p><strong>Id: </strong>{{$equipo->id}}</p>

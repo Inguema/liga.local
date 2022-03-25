@@ -26,8 +26,13 @@
                     <li class="sm:inline-block">
                         <a href="{{route('jugador.index')}}" class="p-3 hover:text-white">Jugadores</a>
                     </li>
+                    @can('edit')
+                        <li class="sm:inline-block">
+                            <a href="{{route('user.index')}}" class="p-3 hover:text-white">Usuarios</a>
+                        </li>
+                    @endcan
                     <li class="sm:inline-block">
-                        <form method="POST" action="{{ route('logout') }}">
+                        <form method="POST" action="{{ route('logout') }}" class="p-3 hover:text-white">
                             @csrf
                             <button type="submit" class="">Salir</button>
                         </form>

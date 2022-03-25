@@ -1,4 +1,4 @@
-@extends('errors::personalizado')
+@extends('errors::404-personalizado')
 
 {{--
 @section('title', __('Not Found'))

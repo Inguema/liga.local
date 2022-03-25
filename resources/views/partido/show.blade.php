@@ -2,9 +2,11 @@
 @section('title', 'Partidos')
 
 @section('content')
+    @can('edit')
     <nav class="navbar">
         <a href="{{route('partido.create')}}" class="btn btn-outline-warning active" role="button" aria-pressed="true">Añadir Partidos</a>
     </nav>
+    @endcan
 
     <div class="row mb-3">
         <p><strong>Equipo Local:</strong> {{App\Models\Equipo::find($partido->equipo_local_id)->nombre}}</p>

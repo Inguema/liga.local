@@ -71,7 +71,6 @@ Route::group(['middleware' => ['can:edit']], function () {
     Route::get('/jugadores/destroy/{jugador}', [JugadorController::class, 'destroy'])->name('jugador.destroy');
 
     // Rutas partidos
-    Route::resource('partidos', PartidoController::class)->names('partido');
     Route::get('/partidos/create', [PartidoController::class, 'create'])->name('partido.create');
     Route::post('/partidos/store', [PartidoController::class, 'store'])->name('partido.store');
     Route::get('/partidos/edit/{partido}', [PartidoController::class, 'edit'])->name('partido.edit');

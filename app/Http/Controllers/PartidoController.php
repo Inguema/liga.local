@@ -49,7 +49,7 @@ class PartidoController extends Controller
         } else {
             $partido = Partido::create($request->all());
         }
-        
+
         return redirect()->route('partido.show', $partido);
     }
 

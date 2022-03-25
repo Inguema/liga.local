@@ -2,10 +2,11 @@
 @section('title', 'Equipos')
 
 @section('content')
+    @can('edit')
     <nav class="navbar">
         <a href="{{route('equipo.create')}}" class="btn btn-outline-warning active" role="button" aria-pressed="true">Añadir Equipo</a>
     </nav>
-
+    @endcan
     <h1><strong>Listado de Equipos</strong></h1>
 
     <table class="table">
@@ -35,8 +36,10 @@
                 <td>
                     <div class="btn-group" role="group" aria-label="Basic outlined example">
                         <a href="{{route('equipo.show', $equipo->id)}}" class="btn btn-outline-primary">Ver</a>
-                        <a href="{{route('equipo.edit', $equipo->id)}}" class="btn btn-outline-primary">Editar</a>
-                        <a href="{{route('equipo.destroy', $equipo->id)}}" class="btn btn-outline-primary">Eliminar</a>
+                        @can('edit')
+                            <a href="{{route('equipo.edit', $equipo->id)}}" class="btn btn-outline-primary">Editar</a>
+                            <a href="{{route('equipo.destroy', $equipo->id)}}" class="btn btn-outline-primary">Eliminar</a>
+                        @endcan
                     </div>
                 </td>
             </tr>
