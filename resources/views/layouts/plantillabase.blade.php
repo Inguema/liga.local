@@ -31,12 +31,17 @@
                             <a href="{{route('user.index')}}" class="p-3 hover:text-white">Usuarios</a>
                         </li>
                     @endcan
-                    <li class="sm:inline-block">
-                        <form method="POST" action="{{ route('logout') }}" class="p-3 hover:text-white">
-                            @csrf
-                            <button type="submit" class="">Salir</button>
-                        </form>
-                    </li>
+                    @auth
+                        <li class="sm:inline-block">
+                            <form method="POST" action="{{ route('logout') }}" class="p-3 hover:text-white">
+                                @csrf
+                                <button type="submit" class="">Salir</button>
+                            </form>
+                        </li>
+                        <li class="sm:inline-block">
+                            <p>{{ auth()->user()->email }}</p>
+                        </li>
+                    @endauth
                 </ul>
             </div>
         </div>
